@@ -1,4 +1,4 @@
 import Config
 
 config :logger, level: :warning
-config :air_price, port: 8080
+config :air_price, port: 4001
