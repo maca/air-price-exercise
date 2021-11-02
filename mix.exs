@@ -25,6 +25,7 @@ defmodule AirPrice.MixProject do
   defp deps do
     [
       {:httpoison, "~> 1.8"},
+      {:sweet_xml, "~> 0.7"},
       {:timex, "~> 3.7"},
       {:cowboy, "~> 2.9"},
       {:plug_cowboy, "~> 2.0"}
