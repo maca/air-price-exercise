@@ -9,7 +9,7 @@ defmodule AirPrice.Providers do
   end
 
   def fetch(params) do
-    AirPrice.FetchSupervisor
+    AirPrice.SoapRequestSupervisor
     |> Task.Supervisor.async_stream_nolink(@providers, fn module ->
       fetch(module, params)
     end)

@@ -1,10 +1,10 @@
 defmodule AirPrice.ApiHandler do
   use Plug.Router
 
-  plug Plug.Parsers, parsers: [:urlencoded]
-  plug Plug.Logger, log: :info
-  plug :match
-  plug :dispatch
+  plug(Plug.Parsers, parsers: [:urlencoded])
+  plug(Plug.Logger, log: :info)
+  plug(:match)
+  plug(:dispatch)
 
   get "/findCheapestOffer" do
     date = conn.params["departureDate"]

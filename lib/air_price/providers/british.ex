@@ -8,7 +8,7 @@ defmodule AirPrice.Providers.British do
 
   defp parse(resp_body) do
     SweetXml.xmap(resp_body,
-      people: [
+     offers: [
         ~x"//AirlineOffer"l,
         provider: ~x"'BA'"s,
         amount: ~x"./TotalPrice/SimpleCurrencyPrice/text()"f

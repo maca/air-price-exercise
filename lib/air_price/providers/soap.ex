@@ -7,14 +7,11 @@ defmodule AirPrice.Providers.Soap do
       import SweetXml, only: [sigil_x: 2]
 
       def fetch(params) do
-        case HTTPoison.request(request(params)) do
-          {:ok, %{body: body, status_code: 200}} ->
-            %{offers: offers} = parse(body)
-            offers
+        {:ok, %{body: body, status_code: 200}} =
+          HTTPoison.request(request(params))
 
-          err ->
-            err
-        end
+        %{offers: offers} = parse(body)
+        offers
       end
 
       defp request(params) do

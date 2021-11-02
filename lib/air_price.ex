@@ -8,7 +8,7 @@ defmodule AirPrice do
     children = [
       {Plug.Cowboy,
        scheme: :http, plug: AirPrice.ApiHandler, options: [port: port]},
-      {Task.Supervisor, name: AirPrice.FetchSupervisor}
+      {Task.Supervisor, name: AirPrice.SoapRequestSupervisor}
     ]
 
     Logger.notice("Listening on port #{port}...")
