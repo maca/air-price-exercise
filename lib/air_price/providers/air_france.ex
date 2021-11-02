@@ -11,8 +11,8 @@ defmodule AirPrice.Providers.AirFrance do
     SweetXml.xmap(resp_body,
       offers: [
         ~x"//ns2:Offer"l,
-        provider: ~x"'AirFrance'",
-        price: ~x"./ns2:TotalPrice/ns2:TotalAmount/text()"
+        provider: ~x"'AFKL'"s,
+        amount: ~x"./ns2:TotalPrice/ns2:TotalAmount/text()"f
       ]
     )
   end

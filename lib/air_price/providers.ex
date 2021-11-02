@@ -5,7 +5,7 @@ defmodule AirPrice.Providers do
 
   def find_cheapest(params) do
     fetch(params)
-    |> Enum.max_by(fn %{price: price} -> price end, fn -> nil end)
+    |> Enum.max_by(fn %{amount: amount} -> amount end, fn -> nil end)
   end
 
   def fetch(params) do
@@ -17,10 +17,8 @@ defmodule AirPrice.Providers do
     |> Enum.to_list()
   end
 
-  def fetch(module, params) do
-    apply(module, :fetch, [params])
-  end
+  def fetch(module, params), do: apply(module, :fetch, [params])
 
-  defp map_responses({:ok, offers}), do: offers
-  defp map_responses(error), do: []
+  defp map_responses({:ok, offers}) when is_list(offers), do: offers
+  defp map_responses(_error), do: []
 end
