@@ -7,6 +7,13 @@ single endpoint `/findCheapestOffer`.
 Which will return a single offer with the lowest price if found, otherwise it
 will return null.
 
+## Getting started on `dev`
+
+
+```
+$ mix deps.get
+$ iex -S mix
+```
 
 ## Endpoint `/findCheapestOffer`
 
