@@ -2,7 +2,7 @@ defmodule AirPrice.Providers.British do
   use AirPrice.Providers.Soap,
     url: "https://test.api.ba.com/selling-distribution/AirShopping/V2",
     headers: [
-      "Client-Key": "xxxxxx",
+      "Client-Key": Application.fetch_env!(:air_price, :british_airways_key),
       soapaction: "AirShoppingV01"
     ]
 

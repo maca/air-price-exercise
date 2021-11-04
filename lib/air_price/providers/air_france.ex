@@ -4,7 +4,7 @@ defmodule AirPrice.Providers.AirFrance do
     headers: [
       soapaction:
         ~s("http://www.af-klm.com/services/passenger/ProvideAirShopping/airShopping"),
-      api_key: "xxxxxx"
+      api_key: Application.fetch_env!(:air_price, :air_france_key)
     ]
 
   defp parse(resp_body) do

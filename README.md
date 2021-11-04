@@ -11,8 +11,7 @@ will return null.
 
 
 ```
-$ mix deps.get
-$ iex -S mix
+$ AIR_FRANCE_KEY=xxx BRITISH_AIRWAYS_KEY=xxx mix do deps.get, app.start
 ```
 
 ## Endpoint `/findCheapestOffer`
@@ -49,9 +48,6 @@ Each of `AirPrice.Poviders.AirFrance` and `AirPrice.Providers.British` use a
 macro module `AirPrice.Providers.Soap` that will define the common functions for
 consuming the SOAP API. A SOAP provider must implement `request_body/1` and
 `parse/1`.
-
-Credentials have been harcoded but they could be defined in the config for
-environments as defaults and read from the environment.
 
 No tests have been written, but I generally write enough unit tests to have
 confidence to refactor and as many integration tests to a have a good degree of
